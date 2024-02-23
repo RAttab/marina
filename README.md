@@ -1,8 +1,5 @@
 # marina
-High-Performance Erlang Cassandra CQL Client
-
-[![Build Status](https://travis-ci.org/lpgauth/marina.svg?branch=master)](https://travis-ci.org/lpgauth/marina)
-[![Coverage Status](https://coveralls.io/repos/github/lpgauth/marina/badge.svg?branch=master)](https://coveralls.io/github/lpgauth/marina?branch=master)
+High-Performance Erlang Cassandra / Scylla CQL Client
 
 ### Requirements
 
@@ -170,7 +167,7 @@ make xref
 ```license
 The MIT License (MIT)
 
-Copyright (c) 2015-2018 Louis-Philippe Gauthier
+Copyright (c) 2015-2024 Louis-Philippe Gauthier
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
