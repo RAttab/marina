@@ -5,22 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: lpgauth/erlang-scylla:26.2.2-5.2-amd64
-
     steps:
     - uses: actions/checkout@v1
-
     - name: Set Path
       run: |
         echo "/usr/local/lib/erlang/bin" >> $GITHUB_PATH
-
     - name: Compile
-
-      run: |
-        DEBUG=1 make compile
-
-    - name: Start Scylla
-      run: systemctl start scylla-server
-
+      run: make compile
     - name: Run xref
       run: make xref
     - name: Run eunit
