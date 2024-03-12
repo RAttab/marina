@@ -62,6 +62,12 @@ High-Performance Erlang Cassandra / Scylla CQL Client
     <td>server port</td>
   </tr>
   <tr>
+    <td>protocol</td>
+    <td>tcp | tls</td>
+    <td>tcp</td>
+    <td>transport procotol</td>
+  </tr>
+  <tr>
     <td>reconnect</td>
     <td>boolean()</td>
     <td>true</td>

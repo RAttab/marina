@@ -92,6 +92,7 @@ start(<<A, B, C, D>> = RpcAddress) ->
     PoolSize = ?GET_ENV(pool_size, ?DEFAULT_POOL_SIZE),
     PoolStrategy = ?GET_ENV(pool_strategy, ?DEFAULT_POOL_STRATEGY),
     Port = ?GET_ENV(port, ?DEFAULT_PORT),
+    Protocol = shackle_protocol(?GET_ENV(protocol, ?DEFAULT_PROTOCOL)),
     Reconnect = ?GET_ENV(reconnect, ?DEFAULT_RECONNECT),
     ReconnectTimeMax = ?GET_ENV(reconnect_time_max,
         ?DEFAULT_RECONNECT_MAX),
@@ -102,6 +103,7 @@ start(<<A, B, C, D>> = RpcAddress) ->
     ClientOptions = [
         {ip, Ip},
         {port, Port},
+        {protocol, Protocol},
         {reconnect, Reconnect},
         {reconnect_time_max, ReconnectTimeMax},
         {reconnect_time_min, ReconnectTimeMin},
@@ -119,6 +121,9 @@ start(<<A, B, C, D>> = RpcAddress) ->
         {error, Reason} ->
             {error, Reason}
     end.
+
+shackle_protocol(tcp) -> shackle_tcp;
+shackle_protocol(tls) -> shackle_tls.
 
 start([], random, N) ->
     foil:insert(?MODULE, strategy, {random, N - 1}),
